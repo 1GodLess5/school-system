@@ -12,4 +12,16 @@ public class Clazz {
         this.primaryTeacher = primaryTeacher;
         this.students = students;
     }
+
+    public String getClazzName() {
+        return clazzName;
+    }
+
+    public String getPrimaryTeacher() {
+        return primaryTeacher;
+    }
+
+    public List<String> getStudents() {
+        return students;
+    }
 }
