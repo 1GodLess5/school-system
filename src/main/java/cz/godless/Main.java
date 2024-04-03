@@ -21,11 +21,11 @@ public class Main {
         
         System.out.print("Students: ");
         int studentCount = 0;
-        for (String student : students) {
+        for (String student : firstClass.getStudents()) {
             studentCount++;
             System.out.print(student);
             
-            if (studentCount < students.size()) {
+            if (studentCount < firstClass.getStudents().size()) {
                 System.out.print(", ");
             }
         }
