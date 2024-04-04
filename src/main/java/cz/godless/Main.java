@@ -1,6 +1,7 @@
 package cz.godless;
 
 import cz.godless.domain.Clazz;
+import cz.godless.domain.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         String firstClassName = "1.A";
-        String primaryTeacher = "Prokopova";
+        Teacher primaryTeacher = new Teacher("Prokopova", true);
         List<String> students = new ArrayList<>();
         students.add("Albert Gacek");
         students.add("Adam Vasek");
@@ -17,7 +18,7 @@ public class Main {
         Clazz firstClass = new Clazz(firstClassName, primaryTeacher, students);
 
         System.out.println("Class: " + firstClass.getClazzName());
-        System.out.println("Primary teacher: " + firstClass.getPrimaryTeacher());
+        System.out.println("Primary teacher: " + firstClass.getPrimaryTeacher().getName());
         
         System.out.print("Students: ");
         int studentCount = 0;
