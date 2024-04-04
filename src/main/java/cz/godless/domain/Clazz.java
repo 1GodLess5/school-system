@@ -5,9 +5,9 @@ import java.util.List;
 public class Clazz {
     private final String clazzName;
     private final Teacher primaryTeacher;
-    private final List<String> students;
+    private final List<Student> students;
 
-    public Clazz(String clazzName, Teacher primaryTeacher, List<String> students) {
+    public Clazz(String clazzName, Teacher primaryTeacher, List<Student> students) {
         this.clazzName = clazzName;
         this.primaryTeacher = primaryTeacher;
         this.students = students;
@@ -21,7 +21,7 @@ public class Clazz {
         return primaryTeacher;
     }
 
-    public List<String> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 }
