@@ -13,4 +13,8 @@ public class Teacher {
         String nameBase = this.name;
         this.name = isWoman ? "Ms. " + nameBase : "Mr. " + nameBase;
     }
+
+    public String getName() {
+        return name;
+    }
 }
