@@ -1,12 +1,14 @@
 package cz.godless.domain;
 
+import cz.godless.enums.Subjects;
+
 import java.util.List;
 
 public class Student {
     private final String name;
-    private final List<String> takesSubjects;
+    private final List<Subjects> takesSubjects;
 
-    public Student(String name, List<String> takesSubjects) {
+    public Student(String name, List<Subjects> takesSubjects) {
         this.name = name;
         this.takesSubjects = takesSubjects;
     }
@@ -15,7 +17,7 @@ public class Student {
         return name;
     }
 
-    public List<String> getTakesSubjects() {
+    public List<Subjects> getTakesSubjects() {
         return takesSubjects;
     }
 }
