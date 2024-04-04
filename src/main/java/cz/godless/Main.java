@@ -3,6 +3,7 @@ package cz.godless;
 import cz.godless.domain.Clazz;
 import cz.godless.domain.Student;
 import cz.godless.domain.Teacher;
+import cz.godless.enums.Subjects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +13,9 @@ public class Main {
         String firstClassName = "1.A";
         Teacher primaryTeacher = new Teacher("Prokopova", true);
 
-        List<String> studentsSubjects = new ArrayList<>();
-        studentsSubjects.add("Math");
-        studentsSubjects.add("English");
-        studentsSubjects.add("P/E");
-        Student student1 = new Student("Albert Gacek", studentsSubjects);
-        Student student2 = new Student("Adam Vasek", studentsSubjects);
-        Student student3 = new Student("Lukas Byrtus", studentsSubjects);
+        Student student1 = new Student("Albert Gacek");
+        Student student2 = new Student("Adam Vasek");
+        Student student3 = new Student("Lukas Byrtus");
 
         List<Student> students = new ArrayList<>();
         students.add(student1);
@@ -32,8 +29,14 @@ public class Main {
         
         System.out.println("Students: ");
         for (Student student : firstClass.getStudents()) {
-            System.out.println("\t" + student.getName() + ": " + student.getTakesSubjects());
+            System.out.print("\t" + student.getName() + ": ");
+            for (Subjects subject : student.getTakesSubjects()) {
+                System.out.print(subject.getDescription() + ", ");
+            }
+            System.out.println();
         }
         
     }
+
+
 }
