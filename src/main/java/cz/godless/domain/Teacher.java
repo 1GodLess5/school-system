@@ -1,16 +1,16 @@
 package cz.godless.domain;
 
 public class Teacher {
-    private String name;
+    private final String name;
     private final boolean isWoman;
 
     public Teacher(String name, boolean isWoman) {
-        this.name = nameGender(name);
         this.isWoman = isWoman;
+        this.name = nameGender(name);
     }
 
     private String nameGender(String name) {
-        return isWoman ? "Ms. " + name : "Mr. " + name;
+        return this.isWoman ? "Ms. " + name : "Mr. " + name;
     }
 
     public String getName() {
