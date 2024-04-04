@@ -5,13 +5,12 @@ public class Teacher {
     private final boolean isWoman;
 
     public Teacher(String name, boolean isWoman) {
-        this.name = name;
+        this.name = nameGender(name);
         this.isWoman = isWoman;
     }
 
-    private void nameGender() {
-        String nameBase = this.name;
-        this.name = isWoman ? "Ms. " + nameBase : "Mr. " + nameBase;
+    private String nameGender(String name) {
+        return isWoman ? "Ms. " + name : "Mr. " + name;
     }
 
     public String getName() {
