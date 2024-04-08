@@ -1,15 +1,15 @@
 package cz.godless;
 
-import cz.godless.domain.Clazz;
-import cz.godless.domain.Student;
-import cz.godless.domain.Teacher;
+import cz.godless.domain.*;
 import cz.godless.enums.Subjects;
+import cz.godless.utility.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // --- CREATING CLAZZ
         String firstClassName = "1.A";
         Teacher primaryTeacher = new Teacher("Prokopova", true);
 
@@ -35,7 +35,23 @@ public class Main {
             }
             System.out.println();
         }
-        
+        // ---
+
+        // --- CREATING SUBJECT
+        List<Grade> student1Grades = new ArrayList<>();
+
+
+        // ---
+
+        // --- TESTING NEW FUNCTIONS
+        List<Grade> newGrades = NumberGenerator.generateGrades();
+        for (Grade grade : newGrades) {
+            System.out.println("Grade: " + grade.getGradeValue());
+            System.out.println("Description: " + grade.getGradeDescription());
+        }
+        // ---
+
+
     }
 
 
