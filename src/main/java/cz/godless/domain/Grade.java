@@ -1,15 +1,15 @@
 package cz.godless.domain;
 
 public class Grade {
-    private final float gradeValue;
+    private final double gradeValue;
     private final String gradeDescription;
 
-    public Grade(float gradeValue, String gradeDescription) {
+    public Grade(double gradeValue, String gradeDescription) {
         this.gradeValue = gradeValue;
         this.gradeDescription = gradeDescription;
     }
 
-    public float getGradeValue() {
+    public double getGradeValue() {
         return gradeValue;
     }
 
