@@ -1,6 +1,7 @@
 package cz.godless.domain;
 
 import cz.godless.enums.Subjects;
+import cz.godless.utility.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,7 +15,7 @@ public class Student {
 
     public Student(String name) {
         this.name = name;
-        this.takesSubjects = randomSubjectPicking();
+        this.takesSubjects = NumberGenerator.randomSubjectPicking();
     }
 
     public String getName() {
@@ -23,30 +24,5 @@ public class Student {
 
     public List<Subjects> getTakesSubjects() {
         return takesSubjects;
-    }
-
-    private List<Subjects> randomSubjectPicking() {
-        List<Subjects> subjects = new ArrayList<>();
-        int subjectsLength = 0;
-        for (Subjects subject : Subjects.values()) {
-            if (subject.getCount() > subjectsLength) {
-                subjectsLength = subject.getCount();
-            }
-        }
-
-        int i = 0;
-        while (i < 5) {
-            int generateInt = (int) ((Math.random() * (subjectsLength + 1)) + 0);
-            for (Subjects subject : Subjects.values()) {
-                if (subject.getCount() == generateInt) {
-                    if (!subjects.contains(subject)) {
-                        subjects.add(subject);
-                        i++;
-                    }
-                }
-            }
-        }
-
-        return subjects;
     }
 }
