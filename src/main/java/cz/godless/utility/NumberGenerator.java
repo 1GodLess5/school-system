@@ -16,7 +16,7 @@ public class NumberGenerator {
     }
 
     private static double generateFloat(double minValueIncl, double maxValueIncl) {
-        return ((Math.random() * (maxValueIncl - minValueIncl + 1)) + minValueIncl);
+        return (Math.random() * (maxValueIncl - minValueIncl)) + minValueIncl;
     }
 
     public static List<Subjects> randomSubjectPicking() {
@@ -34,5 +34,28 @@ public class NumberGenerator {
         }
 
         return subjects;
+    }
+
+    public static List<Grade> generateGrades() {
+        List<Grade> grades = new ArrayList<>();
+
+        int numberOfGrades = generateInt(3, 6);
+        int i = 0;
+        List<Integer> usedTestTypes = new ArrayList<>();
+
+        while (i < numberOfGrades) {
+            double generatedGradeValue = generateFloat(1.0, 5.0);
+            int generatedTestType = generateInt(0, StandardizedTests.values().length);
+            for (StandardizedTests tests : StandardizedTests.values()) {
+                if (tests.getCount() == generatedTestType && !usedTestTypes.contains(generatedTestType)) {
+                    usedTestTypes.add(generatedTestType);
+                    Grade grade = new Grade((double) Math.round(generatedGradeValue * 10.0) / 10, tests.getDescription());
+                    grades.add(grade);
+                    i++;
+                }
+            }
+        }
+
+        return grades;
     }
 }
