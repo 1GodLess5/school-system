@@ -20,20 +20,17 @@ public class NumberGenerator {
         return (Math.random() * (maxValueIncl - minValueIncl)) + minValueIncl;
     }
 
-    public static List<Subjects> randomSubjectPicking() {
-        List<Subjects> subjects = new ArrayList<>();
+    public static List<String> randomSubjectPicking() {
+        List<String> subjects = new ArrayList<>();
         int i = 0;
 
         while (i < 5) {
             int generatedInt = generateInt(0, Subjects.values().length - 1);
-            for (Subjects subject : Subjects.values()) {
-                if (subject.getCount() == generatedInt && !subjects.contains(subject)) {
-                    subjects.add(subject);
-                    i++;
-                }
+            if (!subjects.contains(CountableEnum.getDescriptionByCount(generatedInt, Subjects.class)) && generatedInt >= 0 && generatedInt < Subjects.values().length) {
+                subjects.add(CountableEnum.getDescriptionByCount(generatedInt, Subjects.class));
+                i++;
             }
         }
-
         return subjects;
     }
 
@@ -48,7 +45,7 @@ public class NumberGenerator {
             double generatedGradeValue = generateFloat(1.0, 5.0);
             int generatedTestType = generateInt(0, StandardizedTests.values().length);
 
-            if (!usedTestTypes.contains(generatedTestType) && generatedTestType > 0 && generatedTestType < StandardizedTests.values().length) {
+            if (!usedTestTypes.contains(generatedTestType) && generatedTestType >= 0 && generatedTestType < StandardizedTests.values().length) {
                 usedTestTypes.add(generatedTestType);
                 Grade grade = new Grade((double) Math.round(generatedGradeValue * 10.0) / 10, CountableEnum.getDescriptionByCount(generatedTestType, StandardizedTests.class));
                 grades.add(grade);
