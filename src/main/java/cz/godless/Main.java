@@ -32,8 +32,8 @@ public class Main {
         System.out.println("Students: ");
         for (Student student : firstClass.getStudents()) {
             System.out.print("\t" + student.getName() + ": ");
-            for (Subjects subject : student.getTakesSubjects()) {
-                System.out.print(subject.getDescription() + ", ");
+            for (String subject : student.getTakesSubjects()) {
+                System.out.print(subject + ", ");
             }
             System.out.println();
         }
