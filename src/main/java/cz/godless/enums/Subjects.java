@@ -1,6 +1,6 @@
 package cz.godless.enums;
 
-public enum Subjects {
+public enum Subjects implements CountableEnum{
     MATHEMATICS("Mathematics", 0),
     MUSIC("Music", 1),
     SOCIAL_STUDIES("Social studies", 2),
@@ -28,10 +28,12 @@ public enum Subjects {
         this.count = count;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public int getCount() {
         return count;
     }
