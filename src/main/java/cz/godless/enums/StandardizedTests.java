@@ -1,6 +1,6 @@
 package cz.godless.enums;
 
-public enum StandardizedTests {
+public enum StandardizedTests implements CountableEnum {
     DIAGNOSTIC_ASSESSMENT("Diagnostic Assessment", 0),
     IPSATIVE_ASSESSMENT("Ipsative Assessment", 1),
     PLACEMENT_TEST("Placement Test", 2),
@@ -18,10 +18,12 @@ public enum StandardizedTests {
         this.count = count;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public int getCount() {
         return count;
     }
