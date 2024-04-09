@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Student {
     private final String name;
-    private final List<Subjects> takesSubjects;
+    private final List<String> takesSubjects;
     private final Random random = new Random();
 
     public Student(String name) {
@@ -22,7 +22,7 @@ public class Student {
         return name;
     }
 
-    public List<Subjects> getTakesSubjects() {
+    public List<String> getTakesSubjects() {
         return takesSubjects;
     }
 }
