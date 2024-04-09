@@ -1,6 +1,7 @@
 package cz.godless.utility;
 
 import cz.godless.domain.Grade;
+import cz.godless.enums.CountableEnum;
 import cz.godless.enums.StandardizedTests;
 import cz.godless.enums.Subjects;
 
@@ -46,16 +47,15 @@ public class NumberGenerator {
         while (i < numberOfGrades) {
             double generatedGradeValue = generateFloat(1.0, 5.0);
             int generatedTestType = generateInt(0, StandardizedTests.values().length);
-            for (StandardizedTests tests : StandardizedTests.values()) {
-                if (tests.getCount() == generatedTestType && !usedTestTypes.contains(generatedTestType)) {
-                    usedTestTypes.add(generatedTestType);
-                    Grade grade = new Grade((double) Math.round(generatedGradeValue * 10.0) / 10, tests.getDescription());
-                    grades.add(grade);
-                    i++;
-                }
-            }
-        }
 
+            if (!usedTestTypes.contains(generatedTestType) && generatedTestType > 0 && generatedTestType < StandardizedTests.values().length) {
+                usedTestTypes.add(generatedTestType);
+                Grade grade = new Grade((double) Math.round(generatedGradeValue * 10.0) / 10, CountableEnum.getDescriptionByCount(generatedTestType, StandardizedTests.class));
+                grades.add(grade);
+                i++;
+            }
+
+        }
         return grades;
     }
 }
