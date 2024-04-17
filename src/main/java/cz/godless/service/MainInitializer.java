@@ -1,7 +1,8 @@
-package cz.godless.manager;
+package cz.godless.service;
 
 import cz.godless.domain.Clazz;
 import cz.godless.domain.Student;
+import cz.godless.domain.Teacher;
 import cz.godless.enums.CommonNames;
 import cz.godless.enums.CountableEnum;
 import cz.godless.utility.NumberGenerator;
@@ -10,8 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainInitializer {
-    public static void clazzCreator(String className, String primaryTeacherName, Boolean isWoman, int numberOfStudents) {
+    public static Clazz clazzCreator(String className, String primaryTeacherName, Boolean isWoman, int numberOfStudents) {
+        Teacher teacher = new Teacher(primaryTeacherName, isWoman);
         List<Student> students = generateStudents(numberOfStudents);
+
+        return new Clazz(className, teacher, students);
     }
 
     private static List<Student> generateStudents(int numberOfStudents) {
