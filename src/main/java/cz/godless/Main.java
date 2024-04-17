@@ -1,65 +1,69 @@
 package cz.godless;
 
-import cz.godless.domain.*;
-import cz.godless.enums.Subjects;
-import cz.godless.utility.NumberGenerator;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import cz.godless.domain.Clazz;
+import cz.godless.service.MainInitializer;
+import cz.godless.utility.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        // --- CREATING CLAZZ
-        String firstClassName = "1.A";
-        Teacher primaryTeacher = new Teacher("Prokopova", true);
+        Clazz firstClazz =  MainInitializer.clazzCreator("1.A", "Radka Prokopova", true, 15);
+        PrintUtils.printClazz(firstClazz);
 
-        Student student1 = new Student("Albert Gacek");
-        Student student2 = new Student("Adam Vasek");
-        Student student3 = new Student("Lukas Byrtus");
 
-        List<Student> students = new ArrayList<>();
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
+        // TODO
+        // 1 - work on MainInitializer.java
+        //   -> clazzCreator() -> needed to check if student isn't gonna be doubled
+        //   -> create SubjectCreator() - based on students subjects
+        //
 
-        Clazz firstClass = new Clazz(firstClassName, primaryTeacher, students);
 
-        System.out.println("Class: " + firstClass.getClazzName());
-        System.out.println("Primary teacher: " + firstClass.getPrimaryTeacher().getName());
-        
-        System.out.println("Students: ");
-        for (Student student : firstClass.getStudents()) {
-            System.out.print("\t" + student.getName() + ": ");
-            for (String subject : student.getTakesSubjects()) {
-                System.out.print(subject + ", ");
-            }
-            System.out.println();
-        }
-        // ---
+        // TODO FUTURE
+        // generateStudents -> int cannot be higher than 225 because of uniqueness
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // --- CREATING SUBJECT
-        System.out.println();
-        List<Grade> student1Grades = NumberGenerator.generateGrades();
-        List<Grade> student2Grades = NumberGenerator.generateGrades();
-        List<Grade> student3Grades = NumberGenerator.generateGrades();
-
-        Map<Student, List<Grade>> englishStudents = new HashMap<>();
-        englishStudents.put(student1, student1Grades);
-        englishStudents.put(student2, student2Grades);
-        englishStudents.put(student3, student3Grades);
-
-        Subject english = new Subject(Subjects.ENGLISH.getDescription(), primaryTeacher, englishStudents);
-        System.out.println("Subject: " + english.getSubjectName());
-        System.out.println("Teacher: " + english.getTeacherOfSubject().getName());
-        System.out.println("Students: ");
-        for (Map.Entry<Student, List<Grade>> studentsOfSubject : english.getTakesClass().entrySet()) {
-            System.out.println("\t" + studentsOfSubject.getKey().getName() + ": ");
-            for (Grade studentGrades : studentsOfSubject.getValue()) {
-                System.out.println("\t\t" + studentGrades.getGradeValue() + " - " + studentGrades.getGradeDescription());
-            }
-        }
+//        System.out.println();
+//        List<Grade> student1Grades = NumberGenerator.generateGrades();
+//        List<Grade> student2Grades = NumberGenerator.generateGrades();
+//        List<Grade> student3Grades = NumberGenerator.generateGrades();
+//
+//        Map<Student, List<Grade>> englishStudents = new HashMap<>();
+//        englishStudents.put(student1, student1Grades);
+//        englishStudents.put(student2, student2Grades);
+//        englishStudents.put(student3, student3Grades);
+//
+//        Subject english = new Subject(Subjects.ENGLISH.getDescription(), primaryTeacher, englishStudents);
+//        System.out.println("Subject: " + english.getSubjectName());
+//        System.out.println("Teacher: " + english.getTeacherOfSubject().getName());
+//        System.out.println("Students: ");
+//        for (Map.Entry<Student, List<Grade>> studentsOfSubject : english.getTakesClass().entrySet()) {
+//            System.out.println("\t" + studentsOfSubject.getKey().getName() + ": ");
+//            for (Grade studentGrades : studentsOfSubject.getValue()) {
+//                System.out.println("\t\t" + studentGrades.getGradeValue() + " - " + studentGrades.getGradeDescription());
+//            }
+//        }
         // ---
 
         // --- TESTING NEW FUNCTIONS
