@@ -45,11 +45,11 @@ public enum CommonNames implements CountableEnum {
 
     @Override
     public String getDescription() {
-        return null;
+        return description;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return count;
     }
 }
