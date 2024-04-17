@@ -11,18 +11,16 @@ import java.util.List;
 
 public class MainInitializer {
     public static void clazzCreator(String className, String primaryTeacherName, Boolean isWoman, int numberOfStudents) {
-
+        List<Student> students = generateStudents(numberOfStudents);
     }
 
-    public static List<Student> generateStudents(int numberOfStudents) {
+    private static List<Student> generateStudents(int numberOfStudents) {
         List<Student> generatedStudents = new ArrayList<>();
         List<String> usedNames = new ArrayList<>();
         int i = 0;
-        int tries = 0;
 
         while (i < numberOfStudents) {
-            int generateName = 0;
-            int generateSurname = 0;
+            int generateName, generateSurname;
             String name, surname, finalName;
             boolean addedNewName = false;
 
@@ -39,21 +37,9 @@ public class MainInitializer {
                     usedNames.add(finalName);
                     addedNewName = true;
                     i ++;
-                    System.out.println(name + " " + surname);
                 }
-                tries++;
             }
-
-
-
-
-
-
-
-
-
         }
-        System.out.println(tries);
         return generatedStudents;
     }
 }
